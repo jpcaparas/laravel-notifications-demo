@@ -8,7 +8,7 @@ use Illuminate\Notifications\Messages\NexmoMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class ArrivedHome extends Notification
+class ToNexmo extends Notification
 {
     use Queueable;
 
@@ -72,11 +72,16 @@ class ArrivedHome extends Notification
           '%1$s <%2$s> arrived home at %3$s.',
           $notifiable->name,
           $notifiable->email,
-          Carbon::now()->toDateTimeString()
+          $this->getNow()
         );
 
         return (new NexmoMessage)
             ->content($message)
             ->from(config('services.nexmo.sms_from'));
+    }
+
+    private function getNow()
+    {
+        return Carbon::now()->toDateTimeString();
     }
 }

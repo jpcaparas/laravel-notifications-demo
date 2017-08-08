@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Notifications;
 
+use App\Notifications\ToDb;
 use App\Http\Controllers\Controller;
-use App\Notifications\ToNexmo;
 use App\User;
 use Illuminate\Http\Request;
 
-class NexmoController extends Controller
+class DbController extends Controller
 {
     function __invoke(Request $request, $userId)
     {
@@ -18,11 +18,11 @@ class NexmoController extends Controller
         }
 
         try {
-            $user->notify(new ToNexmo());
+            $user->notify(new ToDb());
         } catch (\Exception $e) {
-           return response($e->getMessage());
+            return response($e->getMessage());
         }
 
-        return response('An SMS has been sent to: ' . $user->phone_mobile);
+        return response('A DB notification has been logged for ' . $user->name);
     }
 }
