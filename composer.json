@@ -1,13 +1,14 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "jpcaparas/demo-laravel-notifications",
+    "description": "A demo of Laravel 5.4 notifications.",
+    "keywords": ["laravel", "notifications", "sms", "nexmo"],
     "license": "MIT",
     "type": "project",
     "require": {
         "php": ">=5.6.4",
         "laravel/framework": "5.4.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "nexmo/client": "1.0.0-beta4"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
