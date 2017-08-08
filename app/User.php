@@ -5,6 +5,16 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * Class User
+ *
+ * @package App
+ *
+ * @property string name
+ * @property string email
+ * @property string password
+ * @property string phone_mobile
+ */
 class User extends Authenticatable
 {
     use Notifiable;
@@ -15,7 +25,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'phone_mobile'
     ];
 
     /**
