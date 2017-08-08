@@ -29,6 +29,10 @@ class User extends Authenticatable
         'name', 'email', 'password', 'phone_mobile', 'prefers_sms'
     ];
 
+    protected $casts = [
+        'prefers_sms' => 'boolean'
+    ];
+
     /**
      * The attributes that should be hidden for arrays.
      *
