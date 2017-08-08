@@ -14,6 +14,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property string email
  * @property string password
  * @property string phone_mobile
+ * @property boolean prefers_sms
  */
 class User extends Authenticatable
 {
@@ -25,7 +26,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'phone_mobile'
+        'name', 'email', 'password', 'phone_mobile', 'prefers_sms'
     ];
 
     /**

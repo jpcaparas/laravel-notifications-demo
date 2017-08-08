@@ -10,5 +10,6 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'password' => $password ?: $password = bcrypt('secret'),
         'phone_mobile' => $faker->phoneNumber,
         'remember_token' => str_random(10),
+        'prefers_sms' => $faker->boolean,
     ];
 });
