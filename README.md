@@ -1,6 +1,6 @@
 # Laravel Notifications Demo
 
-A demo illustrating how Laravel notifications work through various channels (e.g. SMS, email, Slack, database).
+A demo illustrating how [Laravel notifications](https://laravel.com/docs/5.4/notifications) work through various channels (e.g. SMS, email, Slack, database).
 
 ## Installation
 
