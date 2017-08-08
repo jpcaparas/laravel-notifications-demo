@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix' => 'notifications', 'namespace' => 'Notifications'], function() {
+    Route::get('nexmo/{user}', 'NexmoController')->name('notifications.nexmo');
+});
