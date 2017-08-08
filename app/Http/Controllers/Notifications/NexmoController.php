@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Notifications;
 
 use App\Http\Controllers\Controller;
-use App\Notifications\ArrivedHome;
+use App\Notifications\ToNexmo;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -18,7 +18,7 @@ class NexmoController extends Controller
         }
 
         try {
-            $user->notify(new ArrivedHome());
+            $user->notify(new ToNexmo());
         } catch (\Exception $e) {
            return response($e->getMessage());
         }
