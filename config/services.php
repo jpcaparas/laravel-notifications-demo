@@ -40,4 +40,8 @@ return [
         'secret' => env('NEXMO_SECRET'),
         'sms_from' => env('NEXMO_SMS_FROM', 15556666666),
     ],
+
+    'slack' => [
+        'webhook_url' => env('SLACK_WEBHOOK_URL')
+    ]
 ];
