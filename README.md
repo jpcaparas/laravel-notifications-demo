@@ -119,6 +119,10 @@ A demo illustrating how [Laravel notifications](https://laravel.com/docs/5.4/not
 - For portability, I chose SQLite as the demo's default database. No one likes to set up a full-on MySQL database for a simple demo.
 - Nexmo SMS charges vary country-to-country. If you find yourself running out of credits during the demo, try upgrading to their paid tier or attempt to create a new account.
 
+## TODO
+
+Ideas and feature suggestions can be added to the _Backlog_ column on the _Ideas_ [project board](https://github.com/jpcaparas/laravel-notifications-demo/projects/1). I'll try to action them when I have the time.
+
 ## Attributions
 
 This wouldn't be possible without being granted a role as Software Developer at [Pixel Fusion](https://pixelfusion.co.nz/), an award-winning product development company at Parnell, Auckland.
