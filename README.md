@@ -15,14 +15,17 @@ A demo illustrating how [Laravel notifications](https://laravel.com/docs/5.4/not
 
 ### SMS (via Nexmo) notifications
 
-1. [Sign up for an account (with free credits) on Nexmo](https://dashboard.nexmo.com/sign-up) for the `NEXMO_*` directives on the `.env` file.
+1. [Sign up for an account (with free credits) on Nexmo](https://dashboard.nexmo.com/sign-up) to generate values for `NEXMO_*` directives on the `.env` file.
 
 1. Run `php artisan tinker` and issue the following commands:
 
-    > $user = App\User::find([user-id]);
-    > $user->phone_mobile = [your-mobile-phone-number-with-country-code]
-    > $user->prefers_sms = true
-    > $user->save()
+    > `$user = App\User::find([user-id])`
+    
+    > `$user->phone_mobile = [your-mobile-phone-number-with-country-code]`
+    
+    > `$user->prefers_sms = true`
+    
+    > `$user->save()`
 
 1. Visit `http://[url]/notifications/nexmo/[user-id-you-entered-previously]` and you should see this message:
    
