@@ -18,6 +18,7 @@ class UsersTableSeeder extends Seeder
         $user->email = 'jp@jpcaparas.com';
         $user->phone_mobile = '+64273731386';
         $user->prefers_sms = true;
+        $user->slack_webhook_url = '';
         $user->save();
 
         // Rest of users

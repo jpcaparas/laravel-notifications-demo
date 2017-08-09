@@ -18,4 +18,5 @@ Route::get('/', function () {
 Route::group(['prefix' => 'notifications', 'namespace' => 'Notifications'], function() {
     Route::get('nexmo/{user}', 'NexmoController')->name('notifications.nexmo');
     Route::get('db/{user}', 'DbController')->name('notifications.db');
+    Route::get('slack/{user}', 'SlackController')->name('slack.db');
 });

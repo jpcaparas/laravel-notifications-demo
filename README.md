@@ -42,6 +42,22 @@ A demo illustrating how [Laravel notifications](https://laravel.com/docs/5.4/not
      }
      ```
 
+---
+
+### Slack notifications
+
+1. [Generate a webhook](https://api.slack.com/incoming-webhooks) for the `SLACK_WEBHOOK_URL` directive on the `.env` file.
+
+    Note: Webhook URLs can be defined on a per-user basis. Simply define it on the `slack_webhook_url` property of a `User` record.
+
+1. Visit `http://[url]/notifications/slack/[user-id]` and you should see this message:
+   
+    > A Slack notification has been logged for [User]
+    
+1. Now check the Slack channel/user the webhook will send a message and look for this type of notification:
+
+    ![slack-notification](http://i.imgur.com/RTJwLdkl.jpg)
+
 ## Notes
 
 - For portability, I chose SQLite as the demo's default database.

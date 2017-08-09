@@ -51,4 +51,17 @@ class User extends Authenticatable
     {
         return $this->phone_mobile;
     }
+
+    /**
+     * Route notifications for the Slack channel.
+     *
+     * @return string
+     */
+    public function routeNotificationForSlack()
+    {
+        // If no user web hook is defined, fall back to the system one
+        return empty($this->slack_webhook_url) === false
+            ? $this->slack_webhook_url
+            : config('services.slack.webhook_url');
+    }
 }
