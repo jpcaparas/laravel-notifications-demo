@@ -17,6 +17,8 @@ A demo illustrating how [Laravel notifications](https://laravel.com/docs/5.4/not
 
 1. [Sign up for an account (with free credits) on Nexmo](https://dashboard.nexmo.com/sign-up) to generate values for `NEXMO_*` directives on the `.env` file.
 
+1. Run `php artisan config:cache`.
+
 1. Run `php artisan tinker` and issue the following commands:
 
     > `$user = App\User::find([user-id])`
@@ -36,6 +38,34 @@ A demo illustrating how [Laravel notifications](https://laravel.com/docs/5.4/not
     ```
     [User] <[user-email]> arrived home at 2017-08-08 21:34:18.[FREE SMS DEMO, TEST MESSAGE]
     ```
+
+---
+
+### Email notifications
+
+1. [Sign up for a free Mailtrap account](https://mailtrap.io/register/signup?header) to generate values for `MAIL_*` directives on the `.env` file.
+
+    Note: You can choose your own email provider, but for this demo, we're going with Mailtrap, because it's the default provider shipped with Laravel 5.4.
+    
+1. Run `php artisan config:cache`.
+
+1. Run `php artisan tinker` and issue the following commands:
+
+    > `$user = App\User::find([user-id])`
+    
+    > `$user->email = [your-email]`
+    
+    > `$user->save()`
+    
+1. Visit `http://[url]/notifications/email/[user-id-you-entered-previously]` and you should see this message:
+   
+    > An email has been sent to [User]
+    
+1. An email will be sent to the intended recipient:
+
+    ![email-notification](http://i.imgur.com/K2NiQC9l.jpg)
+
+---
 
 ### DB notifications
 
@@ -73,6 +103,8 @@ A demo illustrating how [Laravel notifications](https://laravel.com/docs/5.4/not
 1. [Generate a webhook](https://api.slack.com/incoming-webhooks) for the `SLACK_WEBHOOK_URL` directive on the `.env` file.
 
     Note: Webhook URLs can be defined on a per-user basis. Simply define it on the `slack_webhook_url` property of a `User` record.
+    
+1. Run `php artisan config:cache`.
 
 1. Visit `http://[url]/notifications/slack/[user-id]` and you should see this message:
    
