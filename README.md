@@ -13,13 +13,34 @@ A demo illustrating how [Laravel notifications](https://laravel.com/docs/5.4/not
 
 ## Testing
 
+### SMS (via Nexmo) notifications
+
+1. [Sign up for an account (with free credits) on Nexmo](https://dashboard.nexmo.com/sign-up) for the `NEXMO_*` directives on the `.env` file.
+
+1. Run `php artisan tinker` and issue the following commands:
+
+    > $user = App\User::find([user-id]);
+    > $user->phone_mobile = [your-mobile-phone-number-with-country-code]
+    > $user->prefers_sms = true
+    > $user->save()
+
+1. Visit `http://[url]/notifications/nexmo/[user-id-you-entered-previously]` and you should see this message:
+   
+    > An SMS has been sent to [User]
+    
+1. You should receive an SMS like the one below:
+
+    ```
+    [User] <[user-email]> arrived home at 2017-08-08 21:34:18.[FREE SMS DEMO, TEST MESSAGE]
+    ```
+
 ### DB notifications
 
 1. Visit `http://[url]/notifications/db/[user-id]` and you should see this message:
 
     > A DB notification has been logged for [User]
     
-1. Enter `artisan tinker` and run this command:
+1. Run `artisan tinker` and issue this command:
 
     > `\App\User::find([user-id-you-entered-previously])->notifications`
 
@@ -54,11 +75,15 @@ A demo illustrating how [Laravel notifications](https://laravel.com/docs/5.4/not
    
     > A Slack notification has been logged for [User]
     
-1. Now check the Slack channel/user the webhook will send a message and look for this type of notification:
+1. The webhook will send a message to the specified recipient, which might be either a user or channel. Look for this type of notification:
 
     ![slack-notification](http://i.imgur.com/RTJwLdkl.jpg)
 
 ## Notes
 
-- For portability, I chose SQLite as the demo's default database.
-- To test SMS capabilities, [sign up for an account (with free credits) on Nexmo](https://dashboard.nexmo.com/sign-up) and put the generated API credentials on `.env` file.
+- For portability, I chose SQLite as the demo's default database. No one likes to set up a full-on MySQL database for a simple demo.
+- Nexmo SMS charges vary country-to-country. If you find yourself running out of credits during the demo, try upgrading to their paid tier or attempt to create a new account.
+
+## Attributions
+
+This wouldn't be possible without being granted a role as Software Developer at [Pixel Fusion](https://pixelfusion.co.nz/), an award-winning product development company at Parnell, Auckland.
