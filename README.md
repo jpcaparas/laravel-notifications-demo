@@ -113,6 +113,28 @@ A demo illustrating how [Laravel notifications](https://laravel.com/docs/5.4/not
 1. The webhook will send a message to the specified recipient, which might be either a user or channel. Look for this type of notification:
 
     ![slack-notification](http://i.imgur.com/RTJwLdkl.jpg)
+    
+## Testing asynchronicity
+
+Without the `Illuminate\Contracts\Queue\ShouldQueue` interface implemented, notifications are by default, synchronous and thereby *slow*, especially when the notification connects to a third-party API (e.g. email, SMS, Slack), as the API request is becomes part of the page lifecycle.
+
+To solve this, you can use [queues](https://laravel.com/docs/5.4/queues) to dispatch notifications in their own *separate*, *asynchronous* processes, independent of the current page lifecycle.
+
+To test asynchronous requests on email notifications:
+
+1. Install the [Redis](https://redis.io/download) data store service.
+1. On your `.env` file, set `QUEUE_DRIVER` directive to be `redis` instead of `sync`.
+1. Run `php artisan queue:work`.
+1. Visit `http://[url]/notifications/email/[user-id]?async=true&total=2`. This will dispatch an async email notification 2 times (you can increase that number, but be aware of repercussions).
+
+    Notice that the page will load almost instantaneously because the notifications have been offloaded onto their own processes:
+    
+    ![redis-queue](http://i.imgur.com/sClIi45l.jpg)
+    
+1. Confirm that you are able to receive the said emails:
+    
+    ![mailtrap-async-emails](http://i.imgur.com/GyBbTgAl.jpg)
+    
 
 ## Notes
 
