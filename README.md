@@ -124,6 +124,7 @@ To test asynchronous requests on email notifications:
 
 1. Install the [Redis](https://redis.io/download) data store service.
 1. On your `.env` file, set `QUEUE_DRIVER` directive to be `redis` instead of `sync`.
+1. Run `php artisan config:cache`.
 1. Run `php artisan queue:work`.
 1. Visit `http://[url]/notifications/email/[user-id]?async=true&total=2`. This will dispatch an async email notification 2 times (you can increase that number, but be aware of repercussions).
 
