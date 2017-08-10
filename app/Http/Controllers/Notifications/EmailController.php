@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Notifications;
 
 use App\Http\Controllers\Controller;
 use App\Notifications\ToEmail;
+use App\Notifications\ToEmailAsync;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,17 @@ class EmailController extends Controller
         }
 
         try {
-            $user->notify(new ToEmail());
+            $isAsync = (bool)$request->query('async');
+
+            if ($isAsync === true) {
+                $total = (int)$request->query('total') ?? 1;
+
+                for ($current = 1; $current <= $total; $current++) {
+                    $user->notify(new ToEmailAsync($current, $total));
+                }
+            } else {
+                $user->notify(new ToEmail());
+            }
         } catch (\Exception $e) {
            return response($e->getMessage());
         }

@@ -5,11 +5,12 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=5.6.4 || ^7.0",
+        "php": "^7.0",
         "doctrine/dbal": "^2.5",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
-        "nexmo/client": "1.0.0-beta4"
+        "nexmo/client": "1.0.0-beta4",
+        "predis/predis": "~1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -51,7 +52,7 @@
         "sort-packages": true,
         "optimize-autoloader": true,
         "platform": {
-            "php": "5.6.4"
+            "php": "7.0"
         }
     }
 }
