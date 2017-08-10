@@ -9,7 +9,8 @@
         "doctrine/dbal": "^2.5",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
-        "nexmo/client": "1.0.0-beta4"
+        "nexmo/client": "1.0.0-beta4",
+        "predis/predis": "~1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
